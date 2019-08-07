@@ -15,7 +15,7 @@ public class SynchDemo {
     public synchronized void accessResources0() {
         try {
             // TimeUnit.SECONDS.sleep(1);
-            TimeUnit.MINUTES.sleep(2);
+            TimeUnit.MINUTES.sleep(2);  // 这是线程休眠等待2分钟
             System.out.println(Thread.currentThread().getName() + " is running");
         } catch (InterruptedException e) {
             e.printStackTrace();
