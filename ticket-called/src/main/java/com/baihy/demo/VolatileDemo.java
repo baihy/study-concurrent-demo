@@ -22,7 +22,7 @@ public class VolatileDemo {
         new Thread(() -> {
             ///////这个线程中不能改变index的值///////////
             int index_temp = index;
-            while (index < MAX) {
+            while (index < MAX) { // 如果不加volatile，这个线程就会进入死循环，因为这个线程感知不到共享变量index的改变，所以index会永远小于index
                 if (index_temp != index) {
                     System.out.println(Thread.currentThread().getName() + "：" + index);
                     index_temp = index;
