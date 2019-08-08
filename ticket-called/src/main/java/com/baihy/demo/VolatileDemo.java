@@ -20,21 +20,20 @@ public class VolatileDemo {
 
     public static void main(String[] args) {
         new Thread(() -> {
+            ///////这个线程中不能改变index的值///////////
             int index_temp = index;
-            while (index_temp <= MAX) {
+            while (index < MAX) {
                 if (index_temp != index) {
                     System.out.println(Thread.currentThread().getName() + "：" + index);
-                    index = index_temp;
+                    index_temp = index;
                 }
             }
         }, "read").start();
         new Thread(() -> {
-            int index_temp = index;
-            while (index <= MAX) {
-                System.out.println(Thread.currentThread().getName() + "：" + (++index_temp));
-                index = index_temp;
+            while (index < MAX) {
+                System.out.println(Thread.currentThread().getName() + "：" + (++index));
                 try {
-                    TimeUnit.SECONDS.sleep(2);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
