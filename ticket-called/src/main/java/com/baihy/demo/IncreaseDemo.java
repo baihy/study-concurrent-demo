@@ -9,11 +9,11 @@ package com.baihy.demo;
  */
 public class IncreaseDemo {
 
-    private static volatile int m = 0;
+    private static volatile int index = 0;
 
 
     public static void increase() {
-        m++;
+        index++;
     }
 
     /***
@@ -30,7 +30,8 @@ public class IncreaseDemo {
             }).start();
         }
         // 注意：这个m值的输出是主线程输出的，并不是所有线程执行完成之后输出的结果。
-        System.out.println("m最后的值是：" + m);
+        System.out.println("index最后的值是：" + index);
+        // 推荐使用CountDownLatch进行线程执行的等待
     }
 
 }
