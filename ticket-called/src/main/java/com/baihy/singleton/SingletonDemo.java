@@ -1,5 +1,7 @@
 package com.baihy.singleton;
 
+import java.io.Serializable;
+
 /**
  * @projectName: study-concurrent-demo
  * @packageName: com.baihy
@@ -7,10 +9,11 @@ package com.baihy.singleton;
  * @author: huayang.bai
  * @date: 2019/08/09 9:27
  */
-public class SingletonDemo {
+public class SingletonDemo implements Serializable {
 
     //////这个成员变需要加上volatile的作用就是多线程环境中，让其他线程感知singletonDemo已经被初始化///////////
     private static volatile SingletonDemo singletonDemo = null;
+
     // 不加volatile关键字的时候，会出现指令重排的问题。
     private SingletonDemo() {
         if (null != singletonDemo) {
@@ -32,6 +35,12 @@ public class SingletonDemo {
                 }
             }
         }
+        return singletonDemo;
+    }
+
+
+    // 防止通过序列化和反序列化来破解单例
+    private Object readResolve() {
         return singletonDemo;
     }
 
