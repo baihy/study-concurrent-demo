@@ -13,7 +13,7 @@ public class SingletonDemo {
     private static volatile SingletonDemo singletonDemo = null;
 
     private SingletonDemo() {
-        if (singletonDemo != null) {
+        if (null != singletonDemo) {
             // 破除通过反射实例化对象
             throw new RuntimeException("单实例对象，禁止调用构造方法");
         }
@@ -22,10 +22,10 @@ public class SingletonDemo {
     // 返回单实例对象
     public static SingletonDemo newInstance() {
         // 双重检查确保对象是单例的
-        if (singletonDemo == null) {
+        if (null == singletonDemo) {
             synchronized (SingletonDemo.class) {
                 // 注意：synchronized修饰的变量不能为null
-                if (singletonDemo == null) {
+                if (null == singletonDemo) {
                     singletonDemo = new SingletonDemo();
                 }
             }
