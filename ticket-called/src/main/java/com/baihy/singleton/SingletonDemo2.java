@@ -26,7 +26,9 @@ public class SingletonDemo2 {
     }
 
     // 返回单实例对象
-    // 懒汉式存在线程不安全的问题。
+    // 懒汉式存在线程不安全的问题。加上了synchronized之后，保证了线程安全。
+    // 但是加了synchronized之后，在并发编程中，又退化到了串行执行，性能不好。
+    // 这里方法上加上了synchronized关键字，性能不好，我们可以添加到语句块上，这就变成了双重检查实现单例模式
     public static synchronized SingletonDemo2 newInstance() {
         if (null == singletonDemo2) {
             singletonDemo2 = new SingletonDemo2();
