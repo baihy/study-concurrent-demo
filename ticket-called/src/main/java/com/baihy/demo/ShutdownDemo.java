@@ -21,7 +21,7 @@ public class ShutdownDemo {
             int index = 0;
             while (flag) {
                 System.out.print(Thread.currentThread().getName() + "：*************");
-                if (index++ % 8 == 0) {
+                if (++index % 8 == 0) {
                     System.out.println("");
                 }
             }
