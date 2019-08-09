@@ -25,6 +25,7 @@ public class SingletonDemo {
         if (null == singletonDemo) {
             synchronized (SingletonDemo.class) {
                 // 注意：synchronized修饰的变量不能为null
+                // 第二次检查是为了保证多个线程同时通过了第一次检查
                 if (null == singletonDemo) {
                     singletonDemo = new SingletonDemo();
                 }
