@@ -1,4 +1,4 @@
-package com.baihy;
+package com.baihy.singleton;
 
 /**
  * @projectName: study-concurrent-demo
