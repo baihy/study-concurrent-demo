@@ -3,7 +3,7 @@ package com.baihy;
 /**
  * @projectName: study-concurrent-demo
  * @packageName: com.baihy
- * @description:
+ * @description: 双重检查，实现单实例对象
  * @author: huayang.bai
  * @date: 2019/08/09 9:27
  */
