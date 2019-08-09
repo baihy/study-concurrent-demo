@@ -21,8 +21,8 @@ public class SingletonDemo {
 
     // 返回单实例对象
     public static SingletonDemo newInstance() {
+        // 双重检查确保对象是单例的
         if (singletonDemo == null) {
-            // 双重检查确保对象是单例的
             synchronized (SingletonDemo.class) {
                 // 注意：synchronized修饰的变量不能为null
                 if (singletonDemo == null) {
