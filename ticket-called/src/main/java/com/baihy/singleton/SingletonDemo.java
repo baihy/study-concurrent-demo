@@ -11,7 +11,7 @@ public class SingletonDemo {
 
     //////这个成员变需要加上volatile的作用就是多线程环境中，让其他线程感知singletonDemo已经被初始化///////////
     private static volatile SingletonDemo singletonDemo = null;
-
+    // 不加volatile关键字的时候，会出现指令重排的问题。
     private SingletonDemo() {
         if (null != singletonDemo) {
             // 破除通过反射实例化对象
