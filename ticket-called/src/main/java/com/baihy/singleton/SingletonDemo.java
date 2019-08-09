@@ -36,7 +36,7 @@ public class SingletonDemo {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 20; i++) {
             // 开启100线程获取单实例对象。
             new Thread(() -> {
                 System.out.println(SingletonDemo.newInstance());
