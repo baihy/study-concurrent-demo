@@ -34,10 +34,12 @@ public class SingletonDemo {
     }
 
     public static void main(String[] args) {
-        System.out.println(SingletonDemo.newInstance());
-        System.out.println(SingletonDemo.newInstance());
-        System.out.println(SingletonDemo.newInstance());
-        System.out.println(SingletonDemo.newInstance());
+        for (int i = 0; i < 100; i++) {
+            // 开启100线程获取单实例对象。
+            new Thread(() -> {
+                System.out.println(SingletonDemo.newInstance());
+            }).start();
+        }
     }
 
 }
