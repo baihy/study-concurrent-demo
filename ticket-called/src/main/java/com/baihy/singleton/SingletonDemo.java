@@ -23,6 +23,7 @@ public class SingletonDemo {
     public static SingletonDemo newInstance() {
         // 双重检查确保对象是单例的
         if (null == singletonDemo) {
+            // 因为这里加了synchronized关键字，就相当于是退化成了串行执行。
             synchronized (SingletonDemo.class) {
                 // 注意：synchronized修饰的变量不能为null
                 // 第二次检查是为了保证多个线程同时通过了第一次检查
