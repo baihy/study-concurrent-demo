@@ -1,5 +1,9 @@
 package com.baihy.demo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @projectName: study-concurrent-demo
  * @packageName: com.baihy.demo
@@ -13,19 +17,25 @@ public class ShutdownDemo {
 
     public static void main(String[] args) {
         new Thread(() -> {
+            System.out.println("开始执行时间：" + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+            int index = 0;
             while (flag) {
-                System.out.println("*************");
-            }
-        }).start();
-        // 在一个线程中，控制另一个线程的执行。
-        new Thread(() -> {
-            for (int i = 0; i < 100; i++) {
-                if (i == 10) {
-                    flag = false;
+                System.out.print(Thread.currentThread().getName() + "：*************");
+                if (index++ % 8 == 0) {
+                    System.out.println("");
                 }
             }
-        }).start();
-
+            System.out.println("结束执行时间：" + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        }, "被控制线程").start();
+        new Thread(() -> {
+            try {
+                TimeUnit.MINUTES.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // 运行2分钟之后，停止被控制线程
+            flag = false;
+        }, "控制线程").start();
     }
 
 }
