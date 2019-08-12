@@ -12,6 +12,7 @@
     <modules>
         <module>ticket-called</module>
         <module>cas-demo</module>
+        <module>aqs-demo</module>
     </modules>
 
     <dependencyManagement>
