@@ -12,6 +12,14 @@ import java.io.*;
 public class SingletonTest {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        /**
+         * 通过序列化和反序列化操作，破解单例模式，
+         * 防止通过序列化和反序列化破解单例的办法是：实现readResolve()方法。
+         *     private Object readResolve() {
+         *         return singletonDemo;
+         *     }
+         */
         SingletonDemo singletonDemo = SingletonDemo.newInstance();
         System.out.println(singletonDemo);
         try (FileOutputStream fos = new FileOutputStream("abc.txt");
