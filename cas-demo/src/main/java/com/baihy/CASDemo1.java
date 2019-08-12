@@ -26,6 +26,8 @@ public class CASDemo1 {
 
     public static void add2() {
         ai.incrementAndGet();// 这个方法的作用就是先获取，再++的原子操作
+
+
         //  ai.getAndIncrement();和ai.incrementAndGet();区别是：类似于++在前还是++在后的区别。
         //  原子变量：保证了原子性操作。
     }
