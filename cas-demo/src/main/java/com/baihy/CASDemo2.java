@@ -12,12 +12,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class CASDemo2 {
 
-    //定义一个给了初始值的原子变量
+    // 定义一个拥有初始值的原子变量
     private static AtomicInteger ai = new AtomicInteger(100);
-
 
     public static void main(String[] args) {
         new Thread(() -> {
+            // 第一参数是期望值，期望值和原来的旧值是相等，才能 完成更新
             boolean b = ai.compareAndSet(100, 110);
             System.out.println("100改为110是否成功:" + b);
         }).start();
