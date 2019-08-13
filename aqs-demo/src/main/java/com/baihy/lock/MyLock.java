@@ -38,6 +38,10 @@ public class MyLock implements Lock {
                     setExclusiveOwnerThread(Thread.currentThread());
                     return true;
                 }
+            } else if (getExclusiveOwnerThread() == Thread.currentThread()) { // 增加锁的可重入性
+                // 同一把锁，占用同一资源时，直接分配给这个线程
+                setState(getState() + arg); // 因为此时占用资源的线程已经是当前线程了，所以说，不需要设置占用资源的线程了，只需要更改state即可
+                return true;
             }
             return false;
         }
@@ -60,7 +64,7 @@ public class MyLock implements Lock {
                 return true;
 
             }
-            setState(state - arg);
+            setState(state - arg); // 释放的时候，因为重入锁，我们只需要把这个变量值，减去即可
             // 这里是没有线程安全问题，因为释放锁之前，已经独占了state。
             // 注意：这里不能直接设置为0，因为存在线程重入的问题。
             return false;
