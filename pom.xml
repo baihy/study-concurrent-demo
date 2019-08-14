@@ -13,6 +13,7 @@
         <module>ticket-called</module>
         <module>cas-demo</module>
         <module>aqs-demo</module>
+        <module>concurrent-collection-demo</module>
     </modules>
 
     <dependencyManagement>
