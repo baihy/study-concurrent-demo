@@ -21,7 +21,7 @@ public class FixedThreadPoolDemo {
             // 创建任务对象
             ThreadTask threadTask = new ThreadTask();
             // 把任务交给线程池，来执行任务
-            executorService.execute(threadTask);
+            executorService.execute(threadTask); // 立刻执行任务方法
         }
         // 当所有线程执行完之后，停止线程池。
         executorService.shutdown();
