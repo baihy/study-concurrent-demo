@@ -1,7 +1,5 @@
 package com.baihy.task;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * @projectName: study-concurrent-demo
  * @packageName: com.baihy.task
@@ -15,11 +13,11 @@ public class ThreadTask implements Runnable {
     public void run() {
         String threadName = Thread.currentThread().getName();
         System.out.println(threadName + "开始执行任务");
-        try {
+        /*try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(threadName + "任务执行完毕*******");
+        System.out.println(threadName + "任务执行完毕*******");*/
     }
 }
