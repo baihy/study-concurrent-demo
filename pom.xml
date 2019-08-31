@@ -15,6 +15,7 @@
         <module>aqs-demo</module>
         <module>concurrent-collection-demo</module>
         <module>thread-pool-demo</module>
+        <module>jdk-demo</module>
     </modules>
 
     <dependencyManagement>
